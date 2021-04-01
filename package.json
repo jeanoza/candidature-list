@@ -1,0 +1,11 @@
+{
+  "name": "alternance",
+  "version": "1.0.0",
+  "description": "Application for write my society research",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jeanoza",
+  "license": "ISC"
+}
