@@ -37,8 +37,15 @@ app.get("/api/society", async (req, res) => {
   }
 });
 
+app.post("/api/society/update", (req, res) => {
+  const filter = { _id: req.body._id };
+  Society.findOneAndUpdate(filter, req.body, (err, data) => {
+    if (err) return res.json({ success: false, err });
+    return res.status(200).send({ success: true });
+  });
+});
+
 app.post("/api/society/delete", (req, res) => {
-  console.log(req.body._id);
   Society.deleteOne({ _id: req.body._id }, (err) => {
     if (err) return res.json({ success: false, err });
     return res.status(200).json({ success: true });

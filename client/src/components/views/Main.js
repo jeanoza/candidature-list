@@ -1,7 +1,7 @@
 import Register from "../Register";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import TableRaw from "../TableRaw";
+import TableRow from "../TableRow";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -9,13 +9,26 @@ const Container = styled.div`
   height: 95vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   overflow-y: scroll;
 `;
 const Title = styled.div`
   font-size: 24px;
   font-style: italic;
+`;
+const Row = styled.div`
+  width: 200px;
+  display: flex;
+  justify-content: center;
+`;
+const TableHead = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(20, 20, 20, 0.7);
+  color: rgb(255, 255, 255);
+  padding: 10px 0px;
 `;
 
 const Main = () => {
@@ -28,7 +41,7 @@ const Main = () => {
         setSocieties(response.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [Societies]);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -39,48 +52,24 @@ const Main = () => {
     <Container>
       <Title>Suivi des entreprises</Title>
       <Register />
-      <form onSubmit={onSubmit}>
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Entreprise</th>
-              <th>Contact(site)</th>
-              <th>Email</th>
-              <th>Téléphone</th>
-              <th>Intitulé du poste</th>
-              <th>Techniques</th>
-              <th>Lien de l'offre</th>
-              <th>Date de relance 1</th>
-              <th>Date de relance 2</th>
-              <th>Resultat</th>
-              <th>Option</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Societies &&
-              Societies.map((society) => (
-                <TableRaw
-                  key={society._id}
-                  _id={society._id}
-                  date={new Date(parseInt(society.date))
-                    .toString()
-                    .slice(0, 16)}
-                  name={society.name}
-                  contact={society.contact}
-                  mail={society.mail}
-                  telephone={society.telephone}
-                  post_name={society.post_name}
-                  techniques={society.techniques}
-                  url={society.url}
-                  date_relaunch1={society.date_relaunch1}
-                  date_relaunch2={society.date_relaunch2}
-                  result={society.result}
-                />
-              ))}
-          </tbody>
-        </table>
-      </form>
+      <TableHead>
+        <Row>Date</Row>
+        <Row>Entreprise</Row>
+        <Row>Contact(site)</Row>
+        <Row>Email</Row>
+        <Row>Téléphone</Row>
+        <Row>Intitulé du poste</Row>
+        <Row>Techniques</Row>
+        <Row>Lien de l'offre</Row>
+        <Row>Date de relance 1</Row>
+        <Row>Date de relance 2</Row>
+        <Row>Resultat</Row>
+        <Row>Option</Row>
+      </TableHead>
+      {Societies &&
+        Societies.map((society) => (
+          <TableRow key={society._id} society={society} />
+        ))}
     </Container>
   );
 };
