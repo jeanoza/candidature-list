@@ -4,12 +4,19 @@
   "description": "Application for write my society research",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "pm2 start server/index.js --watch --no-daemon",
+    "backend": "pm2 start server/index.js --watch --no-daemon",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\""
   },
   "author": "jeanoza",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^6.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.12.3"
+  },
+  "devDependencies": {
+    "pm2": "^4.5.6"
   }
 }
