@@ -6,40 +6,7 @@
 
 ## Structure
 
-❯ tree -I "node_modules"
-.
-├── README.md
-├── client
-│   ├── README.md
-│   ├── package.json
-│   ├── public
-│   │   ├── favicon.ico
-│   │   ├── index.html
-│   │   ├── logo192.png
-│   │   ├── logo512.png
-│   │   ├── manifest.json
-│   │   └── robots.txt
-│   ├── src
-│   │   ├── App.js
-│   │   ├── App.test.js
-│   │   ├── components
-│   │   │   ├── Register.js
-│   │   │   ├── TableRow.js
-│   │   │   └── views
-│   │   │   └── Main.js
-│   │   ├── index.css
-│   │   ├── index.js
-│   │   ├── reportWebVitals.js
-│   │   └── setupTests.js
-│   └── yarn.lock
-├── package.json
-├── server
-│   ├── index.html
-│   ├── index.js
-│   └── model
-│   (Thx prettier)└── Society.js
-├── yarn-error.log
-└── yarn.lock
+![스크린샷 2021-04-22 오후 12 19 21](https://user-images.githubusercontent.com/64304902/115698714-37e96880-a365-11eb-96e6-0ed96b0d74ea.png)
 
 ## Skill Stack
 
