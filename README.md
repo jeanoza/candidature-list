@@ -15,5 +15,5 @@
 ## To modify : Server side code refectoring like MVC Architecture
 
 - [x] Model
-- [x] View : Since i manipulate view in React(client side), i don't need that
+- [ ] View : Since i manipulate view in React(client side), i don't need that now but..
 - [ ] Controller : to divide index.js
