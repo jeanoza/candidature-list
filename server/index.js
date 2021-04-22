@@ -17,8 +17,6 @@ mongoose
   .then(() => console.log("MongoDB connected..."))
   .catch((err) => console.log(err));
 
-app.get("/", (req, res) => res.send("Hello world!!"));
-
 app.post("/api/society/register", (req, res) => {
   const society = new Society(req.body);
 
@@ -55,14 +53,3 @@ app.post("/api/society/delete", (req, res) => {
 app.listen(process.env.PORT || 5000, () =>
   console.log(`Alternance App est à port 5000`)
 );
-
-//Date("dateString")
-/**
- * 
- new Date(Date.now()).toJSON();
-"2021-04-01T19:44:58.595Z"
-new Date(2021-04-01).toJSON();
-"1970-01-01T00:00:02.016Z"
-new Date(2020-04-01).toJSON();
-"1970-01-01T00:00:02.015Z"
- */

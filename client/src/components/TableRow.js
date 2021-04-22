@@ -34,7 +34,10 @@ function TableRow({ society }) {
   };
   const onClick = () => {
     const { _id } = societyObj;
-    axios.post("/api/society/delete", { _id });
+    axios.post("/api/society/delete", { _id }).then((response) => {
+      alert(response.data.success ? "Bien supprimé" : "Il y a error");
+      window.location.reload();
+    });
   };
   const onChange = (event) => {
     const {
